@@ -1,0 +1,26 @@
+baseURL: https://weichertlabs.com/
+languageCode: en-us
+title: WeichertLabs
+theme: hextra
+
+defaultContentLanguage: en
+
+params:
+  description: WeichertLabs — guides on infrastructure, cybersecurity, networking, AI, IoT, and Proxmox.
+  navbar:
+    displayTitle: true
+    displayLogo: false
+  theme:
+    default: dark
+    displayToggle: true
+  footer:
+    enable: true
+
+menu:
+  main:
+    - name: Guides
+      url: /guides/
+      weight: 1
+    - name: About
+      url: /about/
+      weight: 2
