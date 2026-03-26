@@ -5,10 +5,12 @@ title: Guides
 Browse guides by category.
 
 {{< cards >}}
-  {{< card link="infrastructure" title="Infrastructure" icon="server" >}}
-  {{< card link="cybersecurity" title="Cybersecurity" icon="shield-check" >}}
-  {{< card link="networking" title="Networking" icon="globe-alt" >}}
+  {{< card link="virtualization" title="Virtualization" icon="cube" >}}
   {{< card link="ai" title="AI" icon="sparkles" >}}
   {{< card link="iot" title="IoT" icon="wifi" >}}
-  {{< card link="proxmox" title="Proxmox" icon="cube" >}}
+  {{< card link="networking" title="Networking" icon="globe-alt" >}}
+  {{< card link="cybersecurity" title="Cybersecurity" icon="shield-check" >}}
+  {{< card link="operating-systems" title="Operating Systems" icon="computer-desktop" >}}
+  {{< card link="containers" title="Containers" icon="circle-stack" >}}
+  {{< card link="storage" title="Storage" icon="server" >}}
 {{< /cards >}}
