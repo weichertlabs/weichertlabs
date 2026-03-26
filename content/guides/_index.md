@@ -10,7 +10,7 @@ Browse guides by category.
   {{< card link="iot" title="IoT" icon="wifi" >}}
   {{< card link="networking" title="Networking" icon="globe-alt" >}}
   {{< card link="cybersecurity" title="Cybersecurity" icon="shield-check" >}}
-  {{< card link="operating-systems" title="Operating Systems" icon="computer-desktop" >}}
-  {{< card link="containers" title="Containers" icon="circle-stack" >}}
+  {{< card link="operating-systems" title="Operating Systems" icon="terminal" >}}
+  {{< card link="containers" title="Containers" icon="code-bracket" >}}
   {{< card link="storage" title="Storage" icon="server" >}}
 {{< /cards >}}
