@@ -11,6 +11,6 @@ Browse guides by category.
   {{< card link="networking" title="Networking" icon="globe-alt" >}}
   {{< card link="cybersecurity" title="Cybersecurity" icon="shield-check" >}}
   {{< card link="operating-systems" title="Operating Systems" icon="terminal" >}}
-  {{< card link="containers" title="Containers" icon="code-bracket" >}}
+  {{< card link="containers" title="Containers" icon="cog" >}}
   {{< card link="storage" title="Storage" icon="server" >}}
 {{< /cards >}}
