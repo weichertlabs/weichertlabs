@@ -6,4 +6,5 @@ Guides covering Docker setup, Compose, image management, and containerized deplo
 
 {{< cards >}}
   {{< card link="docker-compose-linux" title="Install Docker and Docker Compose on Linux" icon="cube" >}}
+  {{< card link="portainer-docker" title="Portainer – Web UI for Docker" icon="server" >}}
 {{< /cards >}}
