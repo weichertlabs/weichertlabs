@@ -6,5 +6,7 @@ description: Guides for installing, configuring, and extending Home Assistant.
 Home Assistant is an open-source home automation platform that puts local control and privacy first. These guides cover everything from getting it running on a Raspberry Pi to integrating sensors, Zigbee devices, and custom automations.
 
 {{< cards >}}
+  {{< card link="install-home-assistant-docker" title="Install Home Assistant in Docker" icon="cube" subtitle="Run HA in a container on any Linux machine" >}}
   {{< card link="install-haos-raspberry-pi" title="Install HAOS on Raspberry Pi 5" icon="server" subtitle="SD card or USB SSD, step by step" >}}
+  {{< card link="zigbee-zha-sonoff-dongle" title="Zigbee with SONOFF ZBDongle-P" icon="wifi" subtitle="Set up ZHA and pair your first devices" >}}
 {{< /cards >}}
