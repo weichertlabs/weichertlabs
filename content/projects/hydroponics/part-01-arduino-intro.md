@@ -61,6 +61,8 @@ Here's the wiring:
 
 That's the full circuit. The path is: Arduino pin 13 → resistor → LED anode → LED cathode → GND.
 
+![Wiring diagram showing Arduino Uno connected to a breadboard with an LED and 220Ω resistor](/images/projects/hydroponics/part-01-arduino-intro/wiring-diagram.svg)
+
 {{< callout type="info" >}}
 **Tip:** If your LED doesn't light up later, try flipping it around. If it still doesn't work, double-check that the resistor is connected between pin 13 and the long leg — not the short leg.
 {{< /callout >}}
