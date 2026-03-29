@@ -36,7 +36,7 @@ This is not a guide on how to build the physical grow system itself — the tank
 | Part | Topic | Status |
 |------|-------|--------|
 | Part 1 | Arduino intro — LED, breadboard, first sketch | ✅ Published |
-| Part 2 | Reading sensors — temperature & humidity with DHT22 | 🔜 Planned |
+| Part 2 | Reading sensors — temperature & humidity with DHT11 | ✅ Published |
 | Part 3 | ESP32 + Wi-Fi — sending sensor data over the network | 🔜 Planned |
 | Part 4 | Home Assistant integration — MQTT and dashboards | 🔜 Planned |
 | Part 5 | Pump and relay control — automating watering | 🔜 Planned |
@@ -48,7 +48,7 @@ The roadmap will evolve as the project does. Some parts may get split up, merged
 
 - Arduino Uno (or compatible clone)
 - Breadboard + jumper wires
-- Various sensors — DHT22, pH sensor, water temp (DS18B20)
+- AZDelivery KY-015 DHT11 sensor
 - ESP32 development board
 - Relay module for pump control
 - Raspberry Pi 5 running Home Assistant OS
@@ -56,4 +56,5 @@ The roadmap will evolve as the project does. Some parts may get split up, merged
 
 {{< cards >}}
   {{< card link="part-01-arduino-intro" title="Part 1 – Arduino Intro" icon="terminal" subtitle="LED, breadboard, and your first sketch" >}}
+  {{< card link="part-02-dht11-sensor" title="Part 2 – DHT11 Sensor" icon="cog" subtitle="Read temperature and humidity" >}}
 {{< /cards >}}

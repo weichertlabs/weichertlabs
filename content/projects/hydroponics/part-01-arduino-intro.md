@@ -131,7 +131,7 @@ That's it. You just wrote and ran embedded code that controls physical hardware.
 
 ## Up Next
 
-In Part 2, we'll connect a temperature and humidity sensor (DHT22) and read real values from the physical world — printing them to the Serial Monitor and eventually sending them somewhere useful.
+In Part 2, we'll connect a temperature and humidity sensor (DHT11) and read real values from the physical world — printing them to the Serial Monitor and eventually sending them somewhere useful.
 
 ## Related Links
 
