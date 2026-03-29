@@ -21,6 +21,9 @@ menu:
     - name: Guides
       url: /guides/
       weight: 1
+    - name: Projects
+      url: /projects/
+      weight: 2
     - name: About
       url: /about/
-      weight: 2
+      weight: 3
