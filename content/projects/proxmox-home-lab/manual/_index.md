@@ -13,7 +13,7 @@ Where a component has its own standalone installation guide, this track links ou
 
 | Part | Topic | Status |
 |------|-------|--------|
-| Part 1 | Network planning — VLAN design and IP schema | Coming soon |
+| Part 1 | [Network planning — VLAN design and IP schema](part-01-network-planning/) | ✅ Published |
 | Part 2 | OPNsense VM — setup and VLAN configuration | Coming soon |
 | Part 3 | Wazuh SIEM — deployment and agent enrollment | Coming soon |
 | Part 4 | Windows domain — AD DS, GPO, Windows 11 clients | Coming soon |
