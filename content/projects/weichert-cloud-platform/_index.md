@@ -103,8 +103,7 @@ Like the Proxmox Home Lab series, WCP is documented in two ways:
 | Part 9 | [Gaming library — Steam, Epic, GOG on Ubuntu](part-09-gaming-library/) | ✅ Published |
 | Part 10 | [Jellyfin — your own Netflix](part-10-jellyfin/) | ✅ Published |
 | Part 11 | [Vaultwarden — self-hosted password manager](part-11-vaultwarden/) | ✅ Published |
-| Part 12 | Uptime Kuma + Syncthing — monitoring and sync | Coming soon |
-
+| Part 12 | [Uptime Kuma + Syncthing — monitoring and sync](part-12-uptime-kuma-syncthing/) | ✅ Published |
 ---
 
 {{< cards >}}
