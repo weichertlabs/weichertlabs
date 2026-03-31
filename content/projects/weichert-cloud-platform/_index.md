@@ -97,9 +97,9 @@ Like the Proxmox Home Lab series, WCP is documented in two ways:
 | Part 3 | [Caddy — reverse proxy and HTTPS for all services](part-03-caddy/) | ✅ Published |
 | Part 4 | [Nextcloud — your own Google Drive](part-04-nextcloud/) | ✅ Published |
 | Part 5 | [Immich — self-hosted Google Photos](part-05-immich/) | ✅ Published |
-| Part 6 | Ollama + Open WebUI — local AI with GPU | Coming soon |
-| Part 7 | ComfyUI — creative AI studio | Coming soon |
-| Part 8 | Sunshine + Moonlight — cloud gaming | Coming soon |
+| Part 6 | [Ollama + Open WebUI — local AI with GPU](part-06-ollama/) | ✅ Published |
+| Part 7 | [ComfyUI — creative AI studio](part-07-comfyui/) | ✅ Published |
+| Part 8 | [Sunshine + Moonlight — cloud gaming](part-08-sunshine-moonlight/) | ✅ Published |
 | Part 9 | Gaming library — Steam, Epic, GOG on Ubuntu | Coming soon |
 | Part 10 | Jellyfin — your own Netflix | Coming soon |
 | Part 11 | Vaultwarden — self-hosted password manager | Coming soon |
