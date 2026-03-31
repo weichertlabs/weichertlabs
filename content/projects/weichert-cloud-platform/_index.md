@@ -94,9 +94,9 @@ Like the Proxmox Home Lab series, WCP is documented in two ways:
 |---|---|---|
 | Part 1 | [Ubuntu base setup and disk layout](part-01-ubuntu-setup/) | ✅ Published |
 | Part 2 | [Docker and Tailscale — the foundation](part-02-docker-tailscale/) | ✅ Published |
-| Part 3 | Caddy — reverse proxy and HTTPS for all services | Coming soon |
-| Part 4 | Nextcloud — your own Google Drive | Coming soon |
-| Part 5 | Immich — self-hosted Google Photos | Coming soon |
+| Part 3 | [Caddy — reverse proxy and HTTPS for all services](part-03-caddy/) | ✅ Published |
+| Part 4 | [Nextcloud — your own Google Drive](part-04-nextcloud/) | ✅ Published |
+| Part 5 | [Immich — self-hosted Google Photos](part-05-immich/) | ✅ Published |
 | Part 6 | Ollama + Open WebUI — local AI with GPU | Coming soon |
 | Part 7 | ComfyUI — creative AI studio | Coming soon |
 | Part 8 | Sunshine + Moonlight — cloud gaming | Coming soon |
