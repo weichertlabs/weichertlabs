@@ -93,7 +93,7 @@ Like the Proxmox Home Lab series, WCP is documented in two ways:
 | Part | Title | Status |
 |---|---|---|
 | Part 1 | [Ubuntu base setup and disk layout](part-01-ubuntu-setup/) | ✅ Published |
-| Part 2 | Docker and Tailscale — the foundation | Coming soon |
+| Part 2 | [Docker and Tailscale — the foundation](part-02-docker-tailscale/) | ✅ Published |
 | Part 3 | Caddy — reverse proxy and HTTPS for all services | Coming soon |
 | Part 4 | Nextcloud — your own Google Drive | Coming soon |
 | Part 5 | Immich — self-hosted Google Photos | Coming soon |
