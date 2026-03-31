@@ -26,7 +26,7 @@ Immich is a self-hosted photo and video backup solution with a Google Photos-lik
 - ✅ Caddy running with `immich.wcp` configured
 - ✅ Plenty of storage space for photos
 
-→ Follow [Part 2](/projects/weichert-cloud-platform/manual/part-02-docker-tailscale/) and [Part 3](/projects/weichert-cloud-platform/manual/part-03-caddy/) first.
+→ Follow [Part 2](../part-02-docker-tailscale/) and [Part 3](../part-03-caddy/) first.
 
 ---
 
@@ -180,6 +180,6 @@ Immich is under active development and releases updates often. Check the [Immich
 
 ## Related guides
 
-- [Part 3 – Caddy Reverse Proxy](/projects/weichert-cloud-platform/manual/part-03-caddy/) — required for `immich.wcp` to work
+- [Part 3 – Caddy Reverse Proxy](../part-03-caddy/) — required for `immich.wcp` to work
 - [Tailscale – Getting Started](/guides/networking/tailscale-getting-started/) — required for mobile app access
 - [Immich Documentation](https://immich.app/docs/) — official docs

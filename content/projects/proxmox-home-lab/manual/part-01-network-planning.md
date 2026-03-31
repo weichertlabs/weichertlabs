@@ -134,7 +134,7 @@ Alternatively, **Tailscale** can be installed on the Proxmox host itself for qui
 
 With the network design in place, Part 2 sets up the OPNsense VM in Proxmox and configures the VLANs, DHCP, and firewall rules to match this design.
 
-**Up next:** [Part 2 – OPNsense VM Setup](/projects/proxmox-home-lab/manual/part-02-opnsense/) *(coming soon)*
+**Up next:** [Part 2 – OPNsense VM Setup](../part-02-opnsense/) *(coming soon)*
 
 ---
 

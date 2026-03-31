@@ -9,7 +9,7 @@ tags: [proxmox, opnsense, vlan, firewall, networking, homelab]
 **Use at your own risk.** All guides and scripts are provided for educational purposes only. Always review and understand any code before running it — especially with administrative privileges. Test in a safe environment before using in production. Your system, your responsibility.
 {{< /callout >}}
 
-This part sets up OPNsense as the central router and firewall for the security lab, implementing the VLAN design from [Part 1 – Network Planning](/projects/proxmox-home-lab/manual/part-01-network-planning/).
+This part sets up OPNsense as the central router and firewall for the security lab, implementing the VLAN design from [Part 1 – Network Planning](../part-01-network-planning/).
 
 ---
 
@@ -20,7 +20,7 @@ Before starting this part:
 - ✅ OPNsense installed and accessible via web UI
   → Follow [OPNsense – Getting Started](/guides/networking/opnsense-getting-started/) first
 - ✅ Network design reviewed
-  → See [Part 1 – Network Planning](/projects/proxmox-home-lab/manual/part-01-network-planning/)
+  → See [Part 1 – Network Planning](../part-01-network-planning/)
 - ✅ Proxmox VE 9.x with post-install script completed
 
 ---
@@ -280,5 +280,5 @@ With OPNsense configured and all VLANs in place, Part 3 deploys the Wazuh SIEM o
 ## Related guides
 
 - [OPNsense – Getting Started](/guides/networking/opnsense-getting-started/) — install OPNsense from scratch
-- [Part 1 – Network Planning](/projects/proxmox-home-lab/manual/part-01-network-planning/) — the VLAN design this part implements
+- [Part 1 – Network Planning](../part-01-network-planning/) — the VLAN design this part implements
 - [Tailscale on Proxmox VE](/guides/networking/tailscale-proxmox/) — alternative remote access during the build phase

@@ -21,7 +21,7 @@ After this part, every service gets a clean URL like `nextcloud.wcp` instead of 
 - ✅ Tailscale connected
 - ✅ The `wcp-network` Docker network created
 
-→ Follow [Part 2 – Docker and Tailscale](/projects/weichert-cloud-platform/manual/part-02-docker-tailscale/) first.
+→ Follow [Part 2 – Docker and Tailscale](../part-02-docker-tailscale/) first.
 
 ---
 

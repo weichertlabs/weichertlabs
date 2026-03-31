@@ -3,7 +3,8 @@
     "allow": [
       "Bash(git init:*)",
       "Bash(git submodule:*)",
-      "Bash(/opt/homebrew/bin/hugo --logLevel warn 2>&1)"
+      "Bash(/opt/homebrew/bin/hugo --logLevel warn 2>&1)",
+      "Bash(hugo:*)"
     ]
   }
 }

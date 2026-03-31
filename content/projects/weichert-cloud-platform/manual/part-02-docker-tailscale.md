@@ -19,7 +19,7 @@ Before deploying any service, two things need to be in place — Docker for runn
 - ✅ NVIDIA drivers installed and `nvidia-smi` working
 - ✅ SSH access to the machine
 
-→ Follow [Part 1 – Ubuntu Base Setup and Disk Layout](/projects/weichert-cloud-platform/manual/part-01-ubuntu-setup/) first if you haven't already.
+→ Follow [Part 1 – Ubuntu Base Setup and Disk Layout](../part-01-ubuntu-setup/) first if you haven't already.
 
 ---
 

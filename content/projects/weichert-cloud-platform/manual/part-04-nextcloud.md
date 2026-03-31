@@ -26,7 +26,7 @@ Nextcloud is a self-hosted file sync and collaboration platform — your own Goo
 - ✅ Caddy running with `nextcloud.wcp` configured
 - ✅ `/opt` partition with plenty of space for files
 
-→ Follow [Part 2](/projects/weichert-cloud-platform/manual/part-02-docker-tailscale/) and [Part 3](/projects/weichert-cloud-platform/manual/part-03-caddy/) first.
+→ Follow [Part 2](../part-02-docker-tailscale/) and [Part 3](../part-03-caddy/) first.
 
 ---
 
@@ -209,6 +209,6 @@ docker compose up -d
 
 ## Related guides
 
-- [Part 3 – Caddy Reverse Proxy](/projects/weichert-cloud-platform/manual/part-03-caddy/) — required for `nextcloud.wcp` to work
+- [Part 3 – Caddy Reverse Proxy](../part-03-caddy/) — required for `nextcloud.wcp` to work
 - [Install Docker and Docker Compose on Linux](/guides/containers/docker/docker-compose-linux/) — Docker basics
 - [Nextcloud Documentation](https://docs.nextcloud.com) — official docs
