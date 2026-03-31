@@ -1,47 +1,57 @@
 ---
 title: "Part 3 – Caddy Reverse Proxy"
-description: Setting up Caddy as a reverse proxy on the WCP machine — clean URLs and automatic HTTPS for every service, without touching a certificate manually.
+description: Setting up Caddy as a reverse proxy on the WCP machine — clean URLs and HTTPS for every service using Tailscale certificates.
 date: 2026-03-31
-tags: [ubuntu, caddy, reverse-proxy, https, docker, self-hosted]
+tags: [ubuntu, caddy, reverse-proxy, https, docker, tailscale, self-hosted]
 ---
 
 {{< callout type="warning" >}}
 **Use at your own risk.** All guides and scripts are provided for educational purposes only. Always review and understand any code before running it — especially with administrative privileges. Test in a safe environment before using in production. Your system, your responsibility.
 {{< /callout >}}
 
-Without a reverse proxy, every service on the WCP machine runs on its own port — Nextcloud on 8080, Jellyfin on 8096, Vaultwarden on 8200, and so on. Caddy solves this by sitting in front of all services and routing traffic based on the domain name, with automatic HTTPS.
+Without a reverse proxy, every service runs on its own port — Nextcloud on 8080, Jellyfin on 8096, Vaultwarden on 8200, and so on. Caddy solves this by routing traffic based on the domain name, with HTTPS handled automatically via Tailscale certificates.
 
-After this part, every service gets a clean URL like `nextcloud.wcp` instead of `192.168.1.50:8080`.
+After this part, every service gets a clean URL like `nextcloud.wcp` with valid HTTPS — no certificate warnings, no browser complaints.
 
 ---
 
 ## Prerequisites
 
-- ✅ Docker and Docker Compose installed
-- ✅ Tailscale connected
-- ✅ The `wcp-network` Docker network created
+- ✅ Docker and the `wcp-network` Docker network created
+- ✅ Tailscale connected and running
+- ✅ MagicDNS enabled in Tailscale admin console
 
-→ Follow [Part 2 – Docker and Tailscale](../part-02-docker-tailscale/) first.
-
----
-
-## How Caddy works in this setup
-
-Caddy runs as a Docker container on the same `wcp-network` as all other services. When a request comes in for `nextcloud.wcp`, Caddy routes it to the Nextcloud container — the browser never needs to know which port Nextcloud is on.
-
-For HTTPS, two options:
-
-**Option A – Local only (Tailscale + internal DNS)**
-Use Tailscale's MagicDNS and internal hostnames. No public domain needed. HTTPS via Caddy's self-signed certificates or a local CA.
-
-**Option B – Public domain**
-If you have a domain name, Caddy automatically provisions Let's Encrypt certificates. Zero configuration needed.
-
-This guide covers Option A — local-only access via Tailscale. Option B is straightforward to add later if needed.
+→ Follow [Part 2](../part-02-docker-tailscale/) first.
 
 ---
 
-## Step 1 – Create the Caddy folder
+## How this setup works
+
+Caddy runs as a Docker container on the `wcp-network`. Services that require HTTPS (Nextcloud, Vaultwarden) get Tailscale-issued certificates — trusted by all your Tailscale-connected devices without any warnings. Other services run on HTTP since they don't need secure context.
+
+---
+
+## Step 1 – Get Tailscale certificates
+
+Tailscale can issue valid HTTPS certificates for your machine's Tailscale hostname:
+
+```bash
+sudo tailscale cert wcp
+```
+
+This creates two files:
+```
+/var/lib/tailscale/certs/wcp.crt
+/var/lib/tailscale/certs/wcp.key
+```
+
+{{< callout type="info" >}}
+Replace `wcp` with your actual Tailscale machine name if you named it differently. Check with `tailscale status`.
+{{< /callout >}}
+
+---
+
+## Step 2 – Create the Caddy folder
 
 ```bash
 mkdir -p /opt/docker/caddy/data
@@ -51,13 +61,11 @@ cd /opt/docker/caddy
 
 ---
 
-## Step 2 – Create the Caddyfile
+## Step 3 – Create the Caddyfile
 
 ```bash
 nano Caddyfile
 ```
-
-Add the following — this will grow as services are added throughout the series:
 
 ```caddyfile
 # Global options
@@ -66,44 +74,42 @@ Add the following — this will grow as services are added throughout the series
     auto_https off
 }
 
-# Nextcloud
-nextcloud.wcp {
+# Services requiring HTTPS (secure context)
+https://nextcloud.wcp {
+    tls /certs/wcp.crt /certs/wcp.key
     reverse_proxy nextcloud:80
 }
 
-# Jellyfin
+https://vault.wcp {
+    tls /certs/wcp.crt /certs/wcp.key
+    reverse_proxy vaultwarden:80
+}
+
+# Services that work fine on HTTP
 jellyfin.wcp {
     reverse_proxy jellyfin:8096
 }
 
-# Immich
 immich.wcp {
     reverse_proxy immich-server:2283
 }
 
-# Ollama Web UI
 ai.wcp {
     reverse_proxy open-webui:8080
 }
 
-# Vaultwarden
-vault.wcp {
-    reverse_proxy vaultwarden:80
-}
-
-# Uptime Kuma
 status.wcp {
     reverse_proxy uptime-kuma:3001
 }
-```
 
-{{< callout type="info" >}}
-`auto_https off` disables automatic HTTPS for now since we're using Tailscale for secure access. Each service is reachable over the Tailscale network without exposing ports to the internet.
-{{< /callout >}}
+sync.wcp {
+    reverse_proxy syncthing:8384
+}
+```
 
 ---
 
-## Step 3 – Create the compose.yml
+## Step 4 – Create the compose.yml
 
 ```bash
 nano compose.yml
@@ -121,6 +127,7 @@ services:
       - ./Caddyfile:/etc/caddy/Caddyfile
       - ./data:/data
       - ./config:/config
+      - /var/lib/tailscale/certs:/certs:ro
     networks:
       - wcp-network
     restart: unless-stopped
@@ -130,26 +137,26 @@ networks:
     external: true
 ```
 
+**Key addition:** `/var/lib/tailscale/certs:/certs:ro` mounts the Tailscale certificates into the Caddy container read-only.
+
 ---
 
-## Step 4 – Start Caddy
+## Step 5 – Start Caddy
 
 ```bash
 docker compose up -d
 docker compose logs -f
 ```
 
-You should see Caddy start without errors. Press `CTRL+C` to exit logs.
+Press `CTRL+C` when running.
 
 ---
 
-## Step 5 – Set Up Local DNS
+## Step 6 – Set Up Local DNS
 
-For the hostnames like `nextcloud.wcp` to resolve, you need local DNS. Two options:
+For hostnames like `nextcloud.wcp` to resolve on your devices, add entries to the hosts file on each machine.
 
-### Option A – Edit /etc/hosts on each client machine
-
-On your Mac, add entries to `/etc/hosts`:
+**On your Mac:**
 
 ```bash
 sudo nano /etc/hosts
@@ -164,25 +171,51 @@ Add (replace with your WCP machine's Tailscale IP):
 100.x.x.x   ai.wcp
 100.x.x.x   vault.wcp
 100.x.x.x   status.wcp
+100.x.x.x   sync.wcp
 ```
 
-### Option B – Use Tailscale DNS (Recommended)
+**On iPhone/iPad via Tailscale DNS:**
 
-In the Tailscale admin console under **DNS → Nameservers**, add a custom nameserver pointing to your WCP machine. This automatically resolves `.wcp` hostnames for all Tailscale-connected devices.
+In the Tailscale admin console under **DNS → Nameservers**, add a custom nameserver pointing to your WCP machine. This resolves `.wcp` hostnames automatically for all Tailscale-connected devices including phones.
 
 ---
 
-## Adding new services to Caddy
+## Renewing Tailscale certificates
 
-Every time a new service is added in this series, add a block to the Caddyfile:
+Tailscale certificates expire and need to be renewed periodically. Automate this with a cron job:
+
+```bash
+sudo crontab -e
+```
+
+Add:
+
+```
+0 0 1 * * tailscale cert wcp && docker exec caddy caddy reload --config /etc/caddy/Caddyfile
+```
+
+This renews the cert and reloads Caddy on the 1st of every month.
+
+---
+
+## Adding new services
+
+Every time a new service is added, add a block to the Caddyfile:
 
 ```caddyfile
+# For services that don't need HTTPS
 newservice.wcp {
+    reverse_proxy container-name:port
+}
+
+# For services that need HTTPS
+https://newservice.wcp {
+    tls /certs/wcp.crt /certs/wcp.key
     reverse_proxy container-name:port
 }
 ```
 
-Then reload Caddy without restarting:
+Then reload Caddy:
 
 ```bash
 docker exec caddy caddy reload --config /etc/caddy/Caddyfile
@@ -197,19 +230,21 @@ docker exec caddy caddy reload --config /etc/caddy/Caddyfile
 | `docker compose up -d` | Start Caddy |
 | `docker compose logs -f` | Follow live logs |
 | `docker exec caddy caddy reload --config /etc/caddy/Caddyfile` | Reload config without restart |
-| `docker exec caddy caddy validate --config /etc/caddy/Caddyfile` | Validate config for errors |
+| `docker exec caddy caddy validate --config /etc/caddy/Caddyfile` | Check config for errors |
+| `sudo tailscale cert wcp` | Renew Tailscale certificate |
 
 ---
 
 ## What's next
 
-With Caddy in place, every service that gets added automatically gets a clean URL. Part 4 deploys Nextcloud — your private Google Drive.
+With Caddy in place and HTTPS working, Part 4 deploys Nextcloud — your private Google Drive.
 
-**Up next:** Part 4 – Nextcloud *(coming soon)*
+**Up next:** [Part 4 – Nextcloud](../part-04-nextcloud/) *(coming soon)*
 
 ---
 
 ## Related guides
 
-- [Tailscale – Getting Started](/guides/networking/tailscale-getting-started/) — secure access to all services
-- [Install Docker and Docker Compose on Linux](/guides/containers/docker/docker-compose-linux/) — Docker basics
+- [Part 2 – Docker and Tailscale](../part-02-docker-tailscale/) — Tailscale setup
+- [Tailscale – Getting Started](/guides/networking/tailscale-getting-started/) — Tailscale basics
+- [Caddy Documentation](https://caddyserver.com/docs/) — official docs
