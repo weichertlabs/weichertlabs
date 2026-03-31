@@ -9,7 +9,7 @@ This project documents building the **WeichertLabs Cloud Platform** — WCP for 
 
 The idea is simple: every major cloud subscription you pay for monthly can be replaced by software you run yourself, on hardware you own, with data that never leaves your home. Storage, photo backup, media streaming, AI assistant, password manager, cloud gaming — all of it, on one machine.
 
-WCP is Patrik's personal name for this setup — a self-hosted platform that grows and evolves over time, documented here as it gets built.
+WCP is my personal name for this setup — a self-hosted platform that grows and evolves over time, documented here as it gets built.
 
 ---
 
@@ -23,7 +23,7 @@ Everything in this series runs on a single machine — a **Minisforum BD770i** w
 | **RAM** | 64 GB | Containers + AI models |
 | **GPU** | RTX 4080 Super | Ollama, ComfyUI, Sunshine/NVENC |
 | **4 TB NVMe** | Primary disk | OS, services, AI models, games |
-| **2 TB HDD** | Secondary disk | Jellyfin media library |
+| **4 TB HDD** | Secondary disk | Jellyfin media library |
 
 ### Disk layout
 
@@ -34,7 +34,7 @@ Everything in this series runs on a single machine — a **Minisforum BD770i** w
 ├── /mnt/ai/   Ollama models, ComfyUI
 └── /mnt/games/ Steam, Epic, GOG libraries
 
-2TB HDD (large)
+4TB HDD (large)
 └── /mnt/media/ Jellyfin — films, series, music
 ```
 
@@ -92,7 +92,7 @@ Like the Proxmox Home Lab series, WCP is documented in two ways:
 
 | Part | Title | Status |
 |---|---|---|
-| Part 1 | Ubuntu base setup and disk layout | Coming soon |
+| Part 1 | [Ubuntu base setup and disk layout](part-01-ubuntu-setup/) | ✅ Published |
 | Part 2 | Docker and Tailscale — the foundation | Coming soon |
 | Part 3 | Caddy — reverse proxy and HTTPS for all services | Coming soon |
 | Part 4 | Nextcloud — your own Google Drive | Coming soon |
