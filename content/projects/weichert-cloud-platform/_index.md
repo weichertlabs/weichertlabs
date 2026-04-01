@@ -90,20 +90,21 @@ Like the Proxmox Home Lab series, WCP is documented in two ways:
 
 ## Series overview
 
-| Part | Title | Status |
-|---|---|---|
-| Part 1 | [Ubuntu base setup and disk layout](part-01-ubuntu-setup/) | ✅ Published |
-| Part 2 | [Docker and Tailscale — the foundation](part-02-docker-tailscale/) | ✅ Published |
-| Part 3 | [Caddy — reverse proxy and HTTPS for all services](part-03-caddy/) | ✅ Published |
-| Part 4 | [Nextcloud — your own Google Drive](part-04-nextcloud/) | ✅ Published |
-| Part 5 | [Immich — self-hosted Google Photos](part-05-immich/) | ✅ Published |
-| Part 6 | [Ollama + Open WebUI — local AI with GPU](part-06-ollama/) | ✅ Published |
-| Part 7 | [ComfyUI — creative AI studio](part-07-comfyui/) | ✅ Published |
-| Part 8 | [Sunshine + Moonlight — cloud gaming](part-08-sunshine-moonlight/) | ✅ Published |
-| Part 9 | [Gaming library — Steam, Epic, GOG on Ubuntu](part-09-gaming-library/) | ✅ Published |
-| Part 10 | [Jellyfin — your own Netflix](part-10-jellyfin/) | ✅ Published |
-| Part 11 | [Vaultwarden — self-hosted password manager](part-11-vaultwarden/) | ✅ Published |
-| Part 12 | [Uptime Kuma + Syncthing — monitoring and sync](part-12-uptime-kuma-syncthing/) | ✅ Published |
+| Part | Title |
+|---|---|
+| Part 1 | Ubuntu base setup and disk layout |
+| Part 2 | Docker and Tailscale — the foundation |
+| Part 3 | Caddy — reverse proxy and HTTPS for all services |
+| Part 4 | Nextcloud — your own Google Drive |
+| Part 5 | Immich — self-hosted Google Photos |
+| Part 6 | Ollama + Open WebUI — local AI with GPU |
+| Part 7 | ComfyUI — creative AI studio |
+| Part 8 | Sunshine + Moonlight — cloud gaming |
+| Part 9 | Gaming library — Steam, Epic, GOG on Ubuntu |
+| Part 10 | Jellyfin — your own Netflix |
+| Part 11 | Vaultwarden — self-hosted password manager |
+| Part 12 | Uptime Kuma + Syncthing — monitoring and sync |
+
 ---
 
 {{< cards >}}

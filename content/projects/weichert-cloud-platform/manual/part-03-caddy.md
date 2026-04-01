@@ -2,6 +2,7 @@
 title: "Part 3 – Caddy Reverse Proxy"
 description: Setting up Caddy as a reverse proxy on the WCP machine — clean URLs and HTTPS for every service using Tailscale certificates.
 date: 2026-03-31
+weight: 3
 tags: [ubuntu, caddy, reverse-proxy, https, docker, tailscale, self-hosted]
 ---
 

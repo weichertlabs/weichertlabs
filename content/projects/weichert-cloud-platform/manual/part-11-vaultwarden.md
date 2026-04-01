@@ -2,6 +2,7 @@
 title: "Part 11 – Vaultwarden"
 description: Deploying Vaultwarden on the WCP machine — a self-hosted Bitwarden-compatible password manager, accessible from all your devices via Tailscale.
 date: 2026-03-31
+weight: 11
 tags: [ubuntu, vaultwarden, bitwarden, docker, password-manager, security, self-hosted]
 ---
 

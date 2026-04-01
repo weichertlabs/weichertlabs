@@ -2,6 +2,7 @@
 title: "Part 6 – Ollama and Open WebUI"
 description: Deploying Ollama with GPU acceleration and Open WebUI on the WCP machine — a fully local AI assistant running on your own RTX 4080 Super.
 date: 2026-03-31
+weight: 6
 tags: [ubuntu, ollama, open-webui, docker, ai, nvidia, gpu, local-ai]
 ---
 

@@ -2,6 +2,7 @@
 title: "Part 8 – Sunshine and Moonlight"
 description: Setting up Sunshine game streaming server on the WCP machine and connecting with Moonlight — cloud gaming from any device using the RTX 4080 Super.
 date: 2026-03-31
+weight: 8
 tags: [ubuntu, sunshine, moonlight, gaming, streaming, nvidia, gpu]
 ---
 

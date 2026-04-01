@@ -2,6 +2,7 @@
 title: "Part 10 – Jellyfin"
 description: Deploying Jellyfin on the WCP machine — your own Netflix, streaming your media library to any device on your network or via Tailscale.
 date: 2026-03-31
+weight: 10
 tags: [ubuntu, jellyfin, docker, media, streaming, self-hosted, nvidia]
 ---
 

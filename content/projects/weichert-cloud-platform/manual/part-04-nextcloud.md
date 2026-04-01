@@ -2,6 +2,7 @@
 title: "Part 4 – Nextcloud"
 description: Deploying Nextcloud on the WCP machine using Docker Compose — your own private Google Drive with file sync, calendar, and contacts.
 date: 2026-03-31
+weight: 4
 tags: [ubuntu, nextcloud, docker, self-hosted, cloud-storage]
 ---
 

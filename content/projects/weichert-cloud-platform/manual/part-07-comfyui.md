@@ -2,6 +2,7 @@
 title: "Part 7 – ComfyUI"
 description: Deploying ComfyUI on the WCP machine — a node-based creative AI studio for image generation, video, music, and voice synthesis, running on the RTX 4080 Super.
 date: 2026-03-31
+weight: 7
 tags: [ubuntu, comfyui, docker, ai, nvidia, gpu, stable-diffusion, creative]
 ---
 

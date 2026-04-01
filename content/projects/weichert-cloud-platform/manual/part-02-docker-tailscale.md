@@ -2,6 +2,7 @@
 title: "Part 2 – Docker and Tailscale"
 description: Setting up Docker and Tailscale on the WCP machine — the two foundations that every service in this series depends on.
 date: 2026-03-31
+weight: 2
 tags: [ubuntu, docker, tailscale, networking, self-hosted]
 ---
 

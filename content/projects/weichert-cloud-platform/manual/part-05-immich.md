@@ -2,6 +2,7 @@
 title: "Part 5 – Immich"
 description: Deploying Immich on the WCP machine — a self-hosted Google Photos alternative with AI-powered face recognition, object detection, and automatic backup from your phone.
 date: 2026-03-31
+weight: 5
 tags: [ubuntu, immich, docker, self-hosted, photos, ai]
 ---
 

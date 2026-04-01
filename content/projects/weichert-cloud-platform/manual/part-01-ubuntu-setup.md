@@ -2,6 +2,7 @@
 title: "Part 1 – Ubuntu Base Setup and Disk Layout"
 description: Installing Ubuntu 24.04 LTS bare metal on the WCP machine, partitioning the disks correctly, and preparing the foundation for all services.
 date: 2026-03-31
+weight: 1
 tags: [ubuntu, linux, bare-metal, disk, storage, setup]
 ---
 

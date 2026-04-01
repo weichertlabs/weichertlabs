@@ -2,6 +2,7 @@
 title: "Part 12 – Uptime Kuma and Syncthing"
 description: Deploying Uptime Kuma for service monitoring and Syncthing for file sync between devices — the final pieces of the WCP stack.
 date: 2026-03-31
+weight: 12
 tags: [ubuntu, uptime-kuma, syncthing, docker, monitoring, file-sync, self-hosted]
 ---
 

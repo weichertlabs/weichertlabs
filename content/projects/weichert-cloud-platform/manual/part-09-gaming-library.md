@@ -2,6 +2,7 @@
 title: "Part 9 – Gaming Library on Ubuntu"
 description: Setting up Steam, Epic Games, GOG, and Ubisoft on Ubuntu with Proton for Windows game compatibility — your complete gaming library on Linux.
 date: 2026-03-31
+weight: 9
 tags: [ubuntu, gaming, steam, proton, epic, gog, linux, gpu]
 ---
 
