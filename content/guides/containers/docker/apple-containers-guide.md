@@ -1,116 +1,138 @@
 ---
 title: Apple Containers on macOS – Early Setup and First Container
-description: Try Apple’s native container runtime on macOS and run your first container from the terminal.
-date: 2026-04-08
-tags: [apple, containers, macos, docker]
+description: Apple's open-source container CLI runs Linux containers as lightweight virtual machines on Apple Silicon. This guide covers installation and first steps.
+date: 2025-01-01
+tags: [docker, containers, macos, apple-silicon]
 ---
 
 {{< callout type="warning" >}}
-**Experimental feature.** Apple Containers is still under development and may change or break between updates. Use only in test environments.
+**Use at your own risk.** All guides and scripts are provided for educational purposes only. Always review and understand any code before running it — especially with administrative privileges. Test in a safe environment before using in production. Your system, your responsibility.
 {{< /callout >}}
 
-Apple is working on native container support in macOS. This is an early implementation and not yet a full replacement for Docker or OrbStack.
+{{< callout type="info" >}}
+**Early-stage project.** Apple Container was announced at WWDC25 and is still in active development. Full support targets macOS 26 Tahoe. It runs on macOS 15 Sequoia with some limitations. Expect the CLI and features to evolve.
+{{< /callout >}}
 
-This guide shows how to test it and run a basic container.
+Apple's `container` is an open-source CLI tool written in Swift that runs Linux containers as lightweight virtual machines on macOS. Announced at WWDC25, it is Apple's native answer to Docker Desktop — no third-party runtime required.
 
----
+The key difference from Docker and OrbStack: each container gets its own isolated micro-VM instead of sharing a single Linux VM. This gives stronger security isolation but means some Docker features (like container-to-container networking on macOS 15) are not yet available.
 
-## Why Apple Containers?
-
-- Native macOS integration  
-- Potentially lower overhead than traditional solutions  
-- No third-party runtime required  
-- Interesting for future development  
-
----
+It uses standard OCI images — you pull from Docker Hub and any other container registry just like with Docker.
 
 ## Requirements
 
-- macOS (latest version recommended)  
-- Apple Silicon recommended  
-- Xcode Command Line Tools  
-
-Install CLI tools if needed:
-
-```bash
-xcode-select --install
-```
+- Apple Silicon Mac (M1 or later) — Intel is not supported
+- macOS 15 Sequoia or later (macOS 26 Tahoe recommended for full functionality)
+- Admin access for installation
 
 ---
 
-## Step 1 – Check if container support exists
+## Step 1 – Download and install
 
-Apple’s container runtime is still evolving. Try:
+Go to the [apple/container releases page](https://github.com/apple/container/releases) and download the latest signed `.pkg` installer.
+
+Double-click the `.pkg` file and follow the prompts. Enter your admin password when asked. This installs the `container` binary to `/usr/local/bin/container`.
+
+Verify the install:
 
 ```bash
-container --help
+container --version
 ```
-
-If available, you’ll see command options.
-
-If not:
-- your macOS version may not support it yet
 
 ---
 
 ## Step 2 – Pull an image
 
-Example:
+On first use, the tool will download a Linux kernel. Confirm when prompted.
+
+Pull Alpine Linux:
 
 ```bash
-container pull alpine
+container image pull alpine:latest
+```
+
+List downloaded images:
+
+```bash
+container image ls
 ```
 
 ---
 
-## Step 3 – Run a container
+## Step 3 – Run your first container
 
 ```bash
-container run alpine echo "Hello from Apple Containers"
+container run alpine:latest echo "Hello from Apple Containers"
 ```
+
+You should see the output printed, then the container exits.
 
 ---
 
-## Step 4 – Interactive container
+## Step 4 – Run an interactive container
 
 ```bash
-container run -it alpine sh
+container run -it alpine:latest sh
 ```
 
-Inside:
+Inside the container:
 
 ```bash
+uname -a
 apk add curl
-```
-
-Exit:
-
-```bash
 exit
 ```
 
----
-
-## Notes
-
-- Not all Docker features are supported  
-- CLI may change between macOS versions  
-- No full Docker compatibility yet  
-- Best used for testing and exploration  
+Note: `uname -a` shows you are inside a Linux environment — fully isolated from the host.
 
 ---
 
-## When to use this
+## Step 5 – Run a container in the background
 
-- Testing Apple’s ecosystem  
-- Learning container fundamentals  
-- Experimenting with future tooling  
+```bash
+container run -d -p 8080:80 --name my-nginx nginx:latest
+```
 
-For production or daily use, OrbStack or Docker is still recommended.
+Open [http://localhost:8080](http://localhost:8080) to verify it is running.
+
+---
+
+## Useful commands
+
+| Command | What it does |
+|---|---|
+| `container run -it image sh` | Run an interactive container |
+| `container run -d -p 8080:80 image` | Run in the background with port mapping |
+| `container ls` | List running containers |
+| `container ls -a` | List all containers including stopped |
+| `container stop name` | Stop a container |
+| `container rm name` | Remove a container |
+| `container image ls` | List downloaded images |
+| `container image pull image:tag` | Pull an image |
+| `container image rm image` | Remove an image |
+
+> **Note:** Unlike Docker, the command to list containers is `container ls`, not `container ps`.
+
+---
+
+## How it differs from Docker
+
+| | Docker / OrbStack | Apple Container |
+|---|---|---|
+| Container isolation | Shared Linux VM | One micro-VM per container |
+| Host OS | macOS, Linux, Windows | macOS only |
+| CPU support | Apple Silicon + Intel | Apple Silicon only |
+| Docker Compose | Yes | Not yet |
+| Container networking | Full | Limited on macOS 15 |
+| Maturity | Production ready | Early-stage |
+
+For daily use and Docker Compose workflows, OrbStack is still the better option. Apple Container is worth exploring if you want stronger isolation or are curious about where macOS containerization is heading.
 
 ---
 
 ## Related Links
 
-- https://developer.apple.com/
-- https://docs.docker.com/
+- [apple/container on GitHub](https://github.com/apple/container)
+- [WWDC25 – Meet Containerization](https://developer.apple.com/videos/play/wwdc2025/346/)
+- [OrbStack on macOS – Install and First Container](https://weichertlabs.com/guides/containers/docker/orbstack-guide/)
+- [Install Docker and Docker Compose on Linux](https://weichertlabs.com/guides/containers/docker/docker-compose-linux/)

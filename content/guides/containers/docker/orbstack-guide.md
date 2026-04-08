@@ -1,84 +1,73 @@
 ---
 title: OrbStack on macOS – Install and First Container
-description: Install OrbStack using Homebrew and run your first container from the terminal.
-date: 2026-04-08
-tags: [orbstack, docker, macos, containers]
+description: Install OrbStack on macOS and run your first Docker container. A fast, lightweight alternative to Docker Desktop with native Apple Silicon support.
+date: 2025-01-01
+tags: [docker, orbstack, macos, containers]
 ---
 
 {{< callout type="warning" >}}
-**Use at your own risk.** All guides and commands are provided for educational purposes only. Always review commands before running them.
+**Use at your own risk.** All guides and scripts are provided for educational purposes only. Always review and understand any code before running it — especially with administrative privileges. Test in a safe environment before using in production. Your system, your responsibility.
 {{< /callout >}}
 
-OrbStack is a fast and lightweight alternative to Docker Desktop on macOS. It uses less resources, starts instantly, and integrates better with the system.
-
-This guide shows how to install OrbStack and run your first container.
-
----
-
-## Why OrbStack?
-
-- Faster startup than Docker Desktop  
-- Lower CPU and RAM usage  
-- Native macOS integration  
-- Built-in terminal and container management  
-- No heavy virtualization overhead  
-
----
+OrbStack is a fast, lightweight Docker runtime for macOS. It replaces Docker Desktop — uses the same Docker CLI and `compose.yml` files — but starts in seconds and uses far less RAM. If you're running containers on a Mac, this is the setup to use.
 
 ## Requirements
 
-- macOS (Apple Silicon or Intel)  
-- Homebrew installed  
+- macOS 13 Ventura or later
+- Apple Silicon or Intel Mac
+- [Homebrew](https://weichertlabs.com/guides/operating-systems/macos/install-homebrew-macos/) installed
 
 ---
 
 ## Step 1 – Install OrbStack
 
-Install using Homebrew:
-
 ```bash
 brew install --cask orbstack
 ```
 
-Start OrbStack:
+Or download directly from [orbstack.dev](https://orbstack.dev).
 
-```bash
-open -a OrbStack
-```
-
-Wait until the service is running (menu bar icon will appear).
+Open OrbStack from Applications or Spotlight. On first launch it installs its helper and sets up the Docker socket automatically. A menu bar icon appears when it's ready.
 
 ---
 
 ## Step 2 – Verify Docker is working
 
-OrbStack provides a Docker-compatible CLI.
-
-Check version:
-
 ```bash
-docker version
+docker --version
+docker compose version
 ```
 
-If it returns version info → everything is working.
-
----
-
-## Step 3 – Run your first container
-
-Run a simple test container:
+Run a quick test:
 
 ```bash
 docker run hello-world
 ```
 
-You should see a confirmation message from Docker.
+If you see the Hello from Docker message — everything is working.
+
+---
+
+## Step 3 – Run your first real container
+
+Start an Nginx web server:
+
+```bash
+docker run -d -p 8080:80 --name my-nginx nginx
+```
+
+Open [http://localhost:8080](http://localhost:8080) — you should see the Nginx welcome page.
+
+Stop and remove it:
+
+```bash
+docker stop my-nginx
+docker rm my-nginx
+```
 
 ---
 
 ## Step 4 – Run an interactive container
-
-Example using Ubuntu:
 
 ```bash
 docker run -it ubuntu bash
@@ -87,41 +76,52 @@ docker run -it ubuntu bash
 Inside the container:
 
 ```bash
-apt update
-apt install -y curl
-```
-
-Exit container:
-
-```bash
+apt update && apt install -y curl
+curl --version
 exit
 ```
 
 ---
 
-## Step 5 – List containers
+## Step 5 – Docker Compose
+
+OrbStack is fully compatible with Docker Compose. Your existing `compose.yml` files work without any changes:
 
 ```bash
-docker ps
+cd ~/docker/your-project
+docker compose up -d
+docker compose logs -f
+docker compose down
 ```
 
-Show all containers:
+---
 
-```bash
-docker ps -a
-```
+## Useful commands
+
+| Command | What it does |
+|---|---|
+| `docker ps` | List running containers |
+| `docker ps -a` | List all containers including stopped |
+| `docker images` | List downloaded images |
+| `docker stop name` | Stop a container |
+| `docker rm name` | Remove a container |
+| `docker rmi image` | Remove an image |
+| `docker logs name` | View container logs |
 
 ---
 
 ## Notes
 
-- OrbStack automatically replaces Docker Desktop  
-- No need to manually configure a VM  
-- Works with existing Docker commands and tools  
+- OrbStack automatically replaces Docker Desktop — no extra configuration needed
+- Existing images and containers are imported automatically if you had Docker Desktop before
+- Free for personal use — a paid license is required for commercial use
+- The OrbStack menu bar icon gives quick access to running containers, resource usage, and the built-in dashboard
 
 ---
 
 ## Related Links
 
-- https://orbstack.dev/
-- https://docs.docker.com/
+- [OrbStack Official Site](https://orbstack.dev)
+- [OrbStack on macOS – Full Overview](https://weichertlabs.com/guides/operating-systems/macos/orbstack-macos/)
+- [Install Docker and Docker Compose on Linux](https://weichertlabs.com/guides/containers/docker/docker-compose-linux/)
+- [Portainer – Web UI for Docker](https://weichertlabs.com/guides/containers/docker/portainer-docker/)
