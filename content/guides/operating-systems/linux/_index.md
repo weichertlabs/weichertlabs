@@ -12,4 +12,6 @@ Guides covering Linux distributions, administration, shell, and system configura
   {{< card link="mount-disk-linux-fstab" title="Mount a Disk in Linux (fstab)" icon="server" >}}
   {{< card link="mount-network-share-linux" title="Mount a Network Share in Linux (fstab)" icon="globe-alt" >}}
   {{< card link="samba-file-sharing-linux" title="Set Up Samba File Sharing on Linux" icon="server" >}}
+  {{< card link="terminal-power-user-linux" title="Linux Terminal – Power User Tips" icon="terminal" >}}
+  {{< card link="shell-scripting-linux" title="Shell Scripting on Linux" icon="cog" >}}
 {{< /cards >}}
