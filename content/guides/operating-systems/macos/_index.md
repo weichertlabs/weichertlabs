@@ -10,4 +10,6 @@ Guides covering macOS setup, configuration, and administration.
   {{< card link="aliases-macos" title="Bash/Zsh Aliases on macOS" icon="cog" >}}
   {{< card link="orbstack-macos" title="OrbStack – Docker on macOS Done Right" icon="cube" >}}
   {{< card link="oh-my-zsh-macos" title="Oh My Zsh – Supercharge Your Terminal" icon="terminal" >}}
+  {{< card link="terminal-power-user-macos" title="macOS Terminal – Power User Tips" icon="terminal" >}}
+  {{< card link="shell-scripting-macos" title="Shell Scripting on macOS" icon="cog" >}}
 {{< /cards >}}
