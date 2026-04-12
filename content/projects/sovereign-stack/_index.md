@@ -55,15 +55,9 @@ Both tracks build the same end result. Choose the one that fits your learning st
 
 ---
 
-## Before you start
+## Hardware used in this series
 
-This project assumes you have a Proxmox VE host up and running. If you haven't done that yet:
-
-- [Proxmox VE Post Install Script](https://weichertlabs.com/guides/virtualization/proxmox/proxmox-ve-post-install/) — clean up repos, apply tweaks, update the system
-
-### Hardware used in this series
-
-| Component | This series |
+| Component | Detail |
 |---|---|
 | **Host** | Gigabyte MC12-LE0 |
 | **CPU** | AMD Ryzen 5800x (8 cores / 16 threads) |
@@ -71,11 +65,11 @@ This project assumes you have a Proxmox VE host up and running. If you haven't d
 | **Storage** | 120 GB NVMe (OS) + 1.9 TB NVMe (VMs) + 2× 3.6 TB HDD |
 | **Network** | 10 GbE (Aquantia AQC107) |
 
-### AI agent setup
+## AI agent setup
 
-- **Agent:** [Goose](https://github.com/block/goose) — open-source AI agent framework
-- **Model:** DeepSeek V3 via [OpenRouter](https://openrouter.ai) (OpenAI-compatible API, cost-effective for code generation)
-- **Alternatively:** [Claude Code](https://docs.anthropic.com/en/docs/claude-code) for more complex reasoning tasks
+- **Agent:** [Goose](https://github.com/block/goose) — open-source AI agent framework by Block
+- **Model:** DeepSeek V3 via [OpenRouter](https://openrouter.ai) — OpenAI-compatible API, cost-effective for code generation tasks
+- **Alternatively:** [Claude Code](https://docs.anthropic.com/en/docs/claude-code) for complex infrastructure reasoning
 - **Provisioning:** Terraform with [bpg/proxmox](https://registry.terraform.io/providers/bpg/proxmox/latest) provider
 - **Configuration:** Ansible over SSH
 
