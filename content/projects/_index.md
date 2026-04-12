@@ -1,17 +1,29 @@
 ---
-title: Projects
-description: Longer builds, documented in public.
+title: Track A — Manual
+description: Building the WeichertLabs Cloud Platform step by step, manually — every config, every command, every mistake documented.
+date: 2026-03-31
+tags: [ubuntu, self-hosted, docker, manual]
 ---
 
-Guides are great for isolated how-tos. But some things are bigger than a single guide — they evolve, hit unexpected walls, and teach you things you didn't know you needed to learn.
+This track documents building the WeichertLabs Cloud Platform manually — every step, every config file, every mistake.
 
-That's what this section is for.
+Where a component has its own standalone installation guide, this track links out to it and returns for the platform-specific configuration. No need to repeat what's already documented elsewhere.
 
-Each project here is an ongoing build with a goal, a roadmap, and honest documentation of what worked and what didn't. Some entries are structured step-by-step guides, others are more like dev log entries. Often a mix of both.
+## Status
 
-{{< cards >}}
-  {{< card link="weichert-cloud-platform" title="WCP – Own Your Cloud" subtitle="Ubuntu · Docker · Nextcloud · Ollama · Local AI" icon="cube" >}}
-  {{< card link="proxmox-home-lab" title="Proxmox Home Lab – Security Lab Series" subtitle="OPNsense · Wazuh · Kali · Local AI" icon="shield-check" >}}
-  {{< card link="sovereign-stack" title="The Sovereign Stack" subtitle="Terraform · Goose · Docker · AI Agents · Open Source Microsoft 365" icon="server" >}}
-  {{< card link="hydroponics" title="Hydroponic Grow System" subtitle="Arduino · ESP32 · Home Assistant · Local AI" icon="sparkles" >}}
-{{< /cards >}}
+| Part | Topic | Status |
+|------|-------|--------|
+| Part 1 | [Ubuntu base setup and disk layout](part-01-ubuntu-setup/) | ✅ Published |
+| Part 2 | [Docker and Tailscale — the foundation](part-02-docker-tailscale/) | ✅ Published |
+| Part 3 | [Caddy — reverse proxy and HTTPS for all services](part-03-caddy/) | 🚧 Coming soon |
+| Part 4 | [Nextcloud — your own Google Drive](part-04-nextcloud/) | 🚧 Coming soon |
+| Part 5 | [Immich — self-hosted Google Photos](part-05-immich/) | 🚧 Coming soon |
+| Part 6 | [Ollama + Open WebUI — local AI with GPU](part-06-ollama/) | 🚧 Coming soon |
+| Part 7 | [ComfyUI — creative AI studio](part-07-comfyui/) | 🚧 Coming soon |
+| Part 8 | [Sunshine + Moonlight — cloud gaming](part-08-sunshine-moonlight/) | 🚧 Coming soon |
+| Part 9 | [Gaming library — Steam, Epic, GOG on Ubuntu](part-09-gaming-library/) | 🚧 Coming soon |
+| Part 10 | [Jellyfin — your own Netflix](part-10-jellyfin/) | 🚧 Coming soon |
+| Part 11 | [Vaultwarden — self-hosted password manager](part-11-vaultwarden/) | 🚧 Coming soon |
+| Part 12 | [Uptime Kuma + Syncthing — monitoring and sync](part-12-uptime-kuma-syncthing/) | 🚧 Coming soon |
+
+*Parts will be added as they are completed and tested.*
