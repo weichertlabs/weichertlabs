@@ -14,4 +14,5 @@ Each project here is an ongoing build with a goal, a roadmap, and honest documen
   {{< card link="hydroponics" title="Hydroponic Grow System" icon="sparkles" subtitle="Arduino · ESP32 · Home Assistant · Local AI" >}}
   {{< card link="proxmox-home-lab" title="Proxmox Home Lab" subtitle="OPNsense · Wazuh · Pentest · Local AI" icon="server" >}}
   {{< card link="weichert-cloud-platform" title="WCP – Own Your Cloud" subtitle="Nextcloud · Jellyfin · Ollama · Cloud Gaming" icon="sparkles" >}}
+  {{< card link="sovereign-stack" title="The Sovereign Stack" subtitle="Terraform · Goose · Docker · AI Agents · Open Source Microsoft 365" icon="server" >}}
 {{< /cards >}}
