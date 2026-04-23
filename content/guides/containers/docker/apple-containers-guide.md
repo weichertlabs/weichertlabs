@@ -134,5 +134,5 @@ For daily use and Docker Compose workflows, OrbStack is still the better option.
 
 - [apple/container on GitHub](https://github.com/apple/container)
 - [WWDC25 – Meet Containerization](https://developer.apple.com/videos/play/wwdc2025/346/)
-- [OrbStack on macOS – Install and First Container](https://weichertlabs.com/guides/containers/docker/orbstack-guide/)
-- [Install Docker and Docker Compose on Linux](https://weichertlabs.com/guides/containers/docker/docker-compose-linux/)
+- [OrbStack on macOS – Install and First Container](/guides/containers/docker/orbstack-guide/)
+- [Install Docker and Docker Compose on Linux](/guides/containers/docker/docker-compose-linux/)

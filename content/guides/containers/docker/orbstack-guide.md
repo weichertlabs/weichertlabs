@@ -122,6 +122,6 @@ docker compose down
 ## Related Links
 
 - [OrbStack Official Site](https://orbstack.dev)
-- [OrbStack on macOS – Full Overview](https://weichertlabs.com/guides/operating-systems/macos/orbstack-macos/)
-- [Install Docker and Docker Compose on Linux](https://weichertlabs.com/guides/containers/docker/docker-compose-linux/)
-- [Portainer – Web UI for Docker](https://weichertlabs.com/guides/containers/docker/portainer-docker/)
+- [OrbStack on macOS – Full Overview](/guides/operating-systems/macos/orbstack-macos/)
+- [Install Docker and Docker Compose on Linux](/guides/containers/docker/docker-compose-linux/)
+- [Portainer – Web UI for Docker](/guides/containers/docker/portainer-docker/)
